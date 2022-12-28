@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import firebase from './firebase';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -9,6 +12,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <Button>Click Me!</Button>
         <a
           className="App-link"
           href="https://reactjs.org"
