@@ -1,9 +1,9 @@
 import React from 'react'
 
-const debtPageScreen = () => {
+const DebtPageScreen = () => {
   return (
 	<div>debtPage-Screen</div>
   )
 }
 
-export default debtPageScreen
+export default DebtPageScreen
