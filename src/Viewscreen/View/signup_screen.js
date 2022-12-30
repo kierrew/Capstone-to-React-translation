@@ -1,39 +1,37 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./layout.css";
+import { UserAuth } from "../../Controller/Auth";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { UserAuth } from "../../Controller/Auth";
-import { useNavigate } from "react-router-dom";
 
-function SignInScreen() {
+const SignUpScreen = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [error, setError] = useState('')
-	const { signIn } = UserAuth();
+	const { createUser } = UserAuth();
 	const navigate = useNavigate()
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setError('');
 		try {
-			await signIn(email, password);
-			navigate('/home');
+			await createUser(email, password);
+			navigate('/home')
 		} catch (e) {
-			setError(e.massage);
+			setError(e.message);
 			console.log(error)
 		}
-	}
+	};
 
-	const signUp = () => {
-		navigate('/signup')
+	const signIn = () =>{
+		navigate('/')
 	}
 
 	return (
 		<div className="App">
 			<header className="App-header">
-				<p>
-					Welcome to the Budget App please sign in
-				</p>
+			<h1>Sign up</h1>
 				<form onSubmit={handleSubmit}>
 					<p>
 						<input
@@ -52,15 +50,15 @@ function SignInScreen() {
 						/>
 					</p>
 					<p>
-						<Button type="submit">Sign in</Button>
+					<Button type="submit">Create Account</Button>
 					</p>
 				</form>
 				<p>
-					<Button onClick={signUp}>New User? Click here.</Button>
-				</p>
+						<Button onClick={signIn}>Returning user? Sign in.</Button>
+					</p>
 			</header>
 		</div>
 	);
-}
+};
 
-export default SignInScreen;
+export default (SignUpScreen);
