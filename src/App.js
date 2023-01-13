@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router';
 import SignInScreen from './Viewscreen/View/signin_screen';
 import SignUpScreen from './Viewscreen/View/signup_screen';
 import DebtPageScreen from './Viewscreen/View/debtPage_Screen';
@@ -17,75 +17,13 @@ import MyProfileScreen from './Viewscreen/View/MyProfileScreen';
 import UserListScreen from './Viewscreen/View/UserListScreen';
 import WalletScreen from './Viewscreen/View/WalletScreen';
 import CurrencyExchangeScreen from './Viewscreen/View/CurrencyExchangeScreen';
+import MyRoutes from './Controller/Routes';
 
 
 function App() {
   return (
     <AuthContextProvider>
-    <Routes>
-      <Route path='/' element={<SignInScreen />}/>
-      <Route path='signup' element={<SignUpScreen />}/>
-      <Route path='home' element={
-        <ProtectedRoutes>
-          <HomeScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='debts' element={
-        <ProtectedRoutes>
-          <DebtPageScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='transactions' element={
-        <ProtectedRoutes>
-          <TransactionsScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='savings' element={
-        <ProtectedRoutes>
-          <SavingsScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='templates' element={
-        <ProtectedRoutes>
-          <BudgetTemplatesScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='acounts' element={
-        <ProtectedRoutes>
-          <AccountsScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='tools' element={
-        <ProtectedRoutes>
-          <ToolsScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='plans' element={
-        <ProtectedRoutes>
-          <PlansScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='profile' element={
-        <ProtectedRoutes>
-          <MyProfileScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='users' element={
-        <ProtectedRoutes>
-          <UserListScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='wallet' element={
-        <ProtectedRoutes>
-          <WalletScreen />
-        </ProtectedRoutes>
-      }/>
-      <Route path='exchange' element={
-        <ProtectedRoutes>
-          <CurrencyExchangeScreen />
-        </ProtectedRoutes>
-      }/>
-    </Routes>
+    <MyRoutes />
     </AuthContextProvider>
   );
 }

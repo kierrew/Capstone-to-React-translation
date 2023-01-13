@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import CustomNavbar from "../../Model/Components/navbar";
 
 const HomeScreen = () => {
 	const { user, logout } = UserAuth();
@@ -25,67 +26,7 @@ const HomeScreen = () => {
 
 	return (
 		<div className="App">
-			<Navbar bg='light' expand="lg">
-				<Container>
-					<Navbar.Brand href="home">Home</Navbar.Brand>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" />
-					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav className="me-auto">
-							<NavDropdown title="Menu" id="basic-nav-dropdown">
-								<NavDropdown.Item
-									href="debts"
-								>Debts</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="/transactions">
-									Transactions
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="/savings">
-									Savings
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="/templates">
-									BudgetTemplates
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="/accounts">
-									Accounts
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="/tools">
-									Tools
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="/plans">
-									Plans
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="/profile">
-									My Profile
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="/users">
-									User List
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="/wallet">
-									My Wallet
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="/exchange">
-									Currency Exchange
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item
-									onClick={handleLogout}
-								>
-									Logout
-								</NavDropdown.Item>
-							</NavDropdown>
-						</Nav>
-					</Navbar.Collapse>
-				</Container>
-			</Navbar>
+			<CustomNavbar />
 			<Col>
 			</Col>
 			<Col>
@@ -96,6 +37,9 @@ const HomeScreen = () => {
 					<p>
 						User Email: {user && user.email}
 					</p>
+					<p>
+						Uid: {user && user.uid}
+					</p>
 					<Button onClick={handleLogout}>Logout</Button>
 				</header>
 			</Col>
@@ -104,3 +48,4 @@ const HomeScreen = () => {
 };
 
 export default (HomeScreen);
+
