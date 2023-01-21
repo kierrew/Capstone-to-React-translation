@@ -1,8 +1,13 @@
 import React from 'react'
+import CustomNavbar from "../../Model/Components/navbar";
+
 
 const MyProfileScreen = () => {
   return (
-	<div>MyProfileScreen</div>
+    <div>
+      <CustomNavbar />
+      MyProfileScreen
+    </div>
   )
 }
 

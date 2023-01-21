@@ -1,8 +1,13 @@
 import React from 'react'
+import CustomNavbar from "../../Model/Components/navbar";
+
 
 const UserListScreen = () => {
   return (
-	<div>UserListScreen</div>
+    <div>
+      <CustomNavbar />
+      UserListScreen
+    </div>
   )
 }
 

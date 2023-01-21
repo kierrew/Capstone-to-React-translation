@@ -1,8 +1,13 @@
 import React from 'react'
+import CustomNavbar from "../../Model/Components/navbar";
+
 
 const BudgetTemplatesScreen = () => {
   return (
-	<div>BudgetTemplatesScreen</div>
+    <div>
+      <CustomNavbar />
+      BudgetTemplatesScreen
+    </div>
   )
 }
 

@@ -1,8 +1,13 @@
 import React from 'react'
+import CustomNavbar from "../../Model/Components/navbar";
+
 
 const PlansScreen = () => {
   return (
-	<div>PlansScreen</div>
+    <div>
+      <CustomNavbar />
+      PlansScreen
+    </div>
   )
 }
 

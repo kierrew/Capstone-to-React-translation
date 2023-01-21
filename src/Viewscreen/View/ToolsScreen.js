@@ -1,8 +1,13 @@
 import React from 'react'
+import CustomNavbar from "../../Model/Components/navbar";
+
 
 const ToolsScreen = () => {
   return (
-	<div>ToolsScreen</div>
+    <div>
+      <CustomNavbar />
+      ToolsScreen
+    </div>
   )
 }
 
