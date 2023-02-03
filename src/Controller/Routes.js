@@ -15,8 +15,7 @@ import MyProfileScreen from '../Viewscreen/MyProfileScreen';
 import UserListScreen from '../Viewscreen/UserListScreen';
 import WalletScreen from '../Viewscreen/WalletScreen';
 import CurrencyExchangeScreen from '../Viewscreen/CurrencyExchangeScreen';
-import addDebtScreen from '../Viewscreen/addDebtScreen';
-
+import AddDebtScreen from '../Viewscreen/addDebtScreen';
 
 
 
@@ -85,9 +84,9 @@ const MyRoutes = () => {
 					<CurrencyExchangeScreen />
 				</ProtectedRoutes>
 			} />
-			<Route path='addDebt' element={
+			<Route path='addDebt' element ={
 				<ProtectedRoutes>
-					<addDebtScreen />
+					<AddDebtScreen />
 				</ProtectedRoutes>
 			} />
 		</Routes>

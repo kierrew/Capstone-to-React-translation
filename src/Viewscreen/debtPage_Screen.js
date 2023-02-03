@@ -6,6 +6,7 @@ import { query, collection, onSnapshot, QuerySnapshot, where, getDocs, connectFi
 import Debt from '../Model/debt';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Button, Row } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 const DebtPageScreen = () => {
   const { user } = UserAuth();
@@ -13,6 +14,11 @@ const DebtPageScreen = () => {
   const [debts, setDebts] = useState([]);
   const [acc, setAcc] = useState([]);
   let uid = useRef({});
+  const navigate = useNavigate()
+
+  const newDebt = () => {
+		navigate('/addDebt')
+	}
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -60,7 +66,10 @@ const DebtPageScreen = () => {
             <Debt key={index} debt={debt} />
           ))}
         </ul>
-            <Button variant="secondary" size="lg" href="addDebt">
+            <Button 
+            variant="secondary" 
+            size="lg"
+            onClick={newDebt}>
               Add New Debt
             </Button>
       </body>
