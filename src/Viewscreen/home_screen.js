@@ -30,7 +30,7 @@ const HomeScreen = () => {
 			<Col>
 			</Col>
 			<Col>
-				<header className="App-header">
+				<body className="App-body">
 					<h1>
 						You made it in!
 					</h1>
@@ -41,7 +41,7 @@ const HomeScreen = () => {
 						Uid: {user && user.uid}
 					</p>
 					<Button variant="secondary" onClick={handleLogout}>Logout</Button>
-				</header>
+				</body>
 			</Col>
 		</div>
 	);

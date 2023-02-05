@@ -30,7 +30,7 @@ function SignInScreen() {
 
 	return (
 		<div className="App">
-			<header className="App-header">
+			<body className="App-body">
 				<p>
 					Welcome to the Budget App please sign in
 				</p>
@@ -58,7 +58,7 @@ function SignInScreen() {
 				<p>
 					<Button variant="secondary" onClick={signUp}>New User? Click here.</Button>
 				</p>
-			</header>
+			</body>
 		</div>
 	);
 }
