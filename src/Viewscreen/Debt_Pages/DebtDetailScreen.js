@@ -115,6 +115,13 @@ const DebtDetailScreen = () => {
 		}
 	}
 
+	const payoff = () => {
+		navigate('/debtPayoff/' + title + '/' +
+		interest + '/' + 
+		balance + '/' + 
+		limit)
+	}
+
 	return (
 		<div className="App">
 			<CustomNavbar />
@@ -187,6 +194,9 @@ const DebtDetailScreen = () => {
 					</p>
 					<p>
 						<Button variant="secondary" type="submit">Save Debt</Button>
+					</p>
+					<p>
+						<Button variant="secondary" onClick={payoff}>Payoff Schedule</Button>
 					</p>
 				</form>
 			</body>

@@ -17,7 +17,7 @@ import WalletScreen from '../Viewscreen/WalletScreen';
 import CurrencyExchangeScreen from '../Viewscreen/CurrencyExchangeScreen';
 import AddDebtScreen from '../Viewscreen/Debt_Pages/addDebtScreen';
 import DebtDetailScreen from '../Viewscreen/Debt_Pages/DebtDetailScreen';
-
+import DebtPayoffScreen from '../Viewscreen/Debt_Pages/DebtPayoffScreen';
 
 
 const MyRoutes = () => {
@@ -93,6 +93,11 @@ const MyRoutes = () => {
 			<Route path='/debtDetail/:debtTitle/:debtInterest/:debtBalance/:debtCategory/:debtID/:debtOriginal/:keyCode' element={
 				<ProtectedRoutes>
 					<DebtDetailScreen />
+				</ProtectedRoutes>
+			} />
+			<Route path='/debtPayoff/:debtTitle/:debtInterest/:debtBalance/:debtOriginal' element={
+				<ProtectedRoutes>
+					<DebtPayoffScreen />
 				</ProtectedRoutes>
 			} />
 		</Routes>
