@@ -29,7 +29,7 @@ const CustomNavbar = () => {
 				<Nav className="me-auto">
 					<NavDropdown title="Menu" id="basic-nav-dropdown">
 						<NavDropdown.Item
-							href="debts"
+							href="/debts"
 						>Debts</NavDropdown.Item>
 						<NavDropdown.Divider />
 						<NavDropdown.Item href="/transactions">

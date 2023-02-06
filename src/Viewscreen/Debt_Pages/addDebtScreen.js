@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import CustomNavbar from "../Model/Components/navbar";
+import CustomNavbar from "../../Model/Components/navbar";
 import Button from 'react-bootstrap/Button';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { query, collection, onSnapshot, QuerySnapshot, where, getDocs, connectFirestoreEmulator, addDoc } from 'firebase/firestore';
-import { db } from '../firebase';
-import { useNavigate } from "react-router-dom";
+import { db } from '../../firebase';
+import { useNavigate, useParams } from "react-router-dom";
 
 const AddDebtScreen = () => {
 	const [title, setTitle] = useState('')
@@ -12,12 +12,11 @@ const AddDebtScreen = () => {
 	const [balance, setBalance] = useState('')
 	const [interest, setInterest] = useState('')
 	const [category, setCategory] = useState('')
-	const [debts, setDebts] = useState([]);
 	const auth = getAuth();
 	const navigate = useNavigate()
 	let uid = useRef({});
 	let emailAdd = useRef({});
-	let keyCode  = useRef({});
+	let { keyCode }  = useParams();
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -29,27 +28,10 @@ const AddDebtScreen = () => {
 		  unsubscribe();
 		};
 	  }, []);
-	
-	
-	  useEffect(() => {
-		let usersArr = []
-		let debtsArr = []
-		const q = query(collection(db, 'Users'))
-		const unsubscribe = onSnapshot(q, (querySnapshot) => {
-		  querySnapshot.forEach((doc) => {
-			if (doc.data().uid === uid.current) {
-			  console.log(doc.data().uid)
-			  keyCode.current = doc.id
-			  console.log(keyCode)
-			}
-		  });
-		});
-	
-		return () => unsubscribe()
-	  }, [])
 
 	  const createDebt = async (e) => {
 		e.preventDefault(e)
+		console.log(keyCode)
 		if (validateTitle(title) === false) {
 			alert("Title too short")
 			return
@@ -68,7 +50,7 @@ const AddDebtScreen = () => {
 		}
 
 		await addDoc(collection(db, 'Users',
-		keyCode.current, 'Debts'), {
+		keyCode, 'Debts'), {
 			title: title,
 			balance: balance,
 			category: category,
@@ -129,7 +111,7 @@ const AddDebtScreen = () => {
 			</header>
 			<body className='App-body'>
 				<p>
-					Welcome to the Budget App please sign in
+					Please enter the informationof your new debt.
 				</p>
 				<form onSubmit={createDebt}>
 					<p>

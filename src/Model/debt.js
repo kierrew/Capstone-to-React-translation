@@ -7,7 +7,6 @@ import { Card } from 'react-bootstrap';
 
 const Debt = ({ debt }) => {
 	console.log(debt)
-	console.log(debt.original / debt.balance * 10)
 	let textColor = ""
 	let iconName = useRef({})
 
@@ -29,10 +28,12 @@ const Debt = ({ debt }) => {
 			style={{ width: '600px' }}>
 			<Card.Body>
 				<Card.Title>{debt.title}</Card.Title>
-				<i class={iconName.current}></i>
-				<Card.Text>
+				<Card.Subtitle>
 					{debt.category}
-				</Card.Text>
+				</Card.Subtitle>
+				<p>
+				<i class={iconName.current}></i>
+				</p>
 			</Card.Body>
 		</Card >
 	)
