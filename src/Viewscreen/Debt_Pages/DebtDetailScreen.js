@@ -1,17 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 import CustomNavbar from "../../Model/Components/navbar";
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 import Debt from '../../Model/debt';
 import Button from 'react-bootstrap/Button';
+import { collection, doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../firebase';
+
 
 
 
 const DebtDetailScreen = () => {
-	const [title, setTitle] = useState('')
-	const [limit, setLimit] = useState('')
-	const [balance, setBalance] = useState('')
-	const [interest, setInterest] = useState('')
-	const [category, setCategory] = useState('')
+
 	let { debtTitle } = useParams();
 	let { debtBalance } = useParams();
 	let { debtCategory } = useParams();
@@ -19,20 +18,101 @@ const DebtDetailScreen = () => {
 	let { debtInterest } = useParams();
 	let { debtOriginal } = useParams();
 	let { keyCode } = useParams();
+	const navigate = useNavigate()
 	const [editable, setEditable] = useState(true)
+	const [title, setTitle] = useState(debtTitle)
+	const [limit, setLimit] = useState(debtOriginal)
+	const [balance, setBalance] = useState(debtBalance)
+	const [interest, setInterest] = useState(debtInterest)
+	const [category, setCategory] = useState(debtCategory)
+	let update = false
 
-	const createDebt = () => {
-		console.log(debtTitle)
-		console.log(debtInterest)
-		console.log(debtBalance)
-		console.log(debtID)
-		console.log(debtCategory)
-		console.log(debtOriginal)
-		console.log(keyCode)
+
+
+	const updateDebt = async (e) => {
+		e.preventDefault(e)
+		if (validateTitle(title) === false) {
+			alert("Title too short")
+			return
+		}
+		if (validateLimit(limit) === false) {
+			alert("Limit too small")
+			return
+		}
+		if (validateBalance(balance) === false) {
+			alert("Balance too low")
+			return
+		}
+		if (validateInterest(interest) === false) {
+			alert("Interest too low")
+			return
+		}
+		if (title != debtTitle) {
+			update = true
+		} if (limit != debtOriginal) {
+			update = true
+		} if (balance != debtBalance) {
+			update = true
+		} if (interest != debtInterest) {
+			update = true
+		} if (category != debtCategory) {
+			update = true
+		} if (update == true) {
+			await updateDoc(doc(db, 'Users', keyCode, 'Debts', debtID), {
+				title: title,
+				balance: balance,
+				category: category,
+				original: limit,
+				interest: interest,
+			})
+		}
+		setEditable(!editable)
+		navigate('/debts')
 	}
 
 	const setEdit = () => {
-		setEditable(!editable)		
+		setEditable(!editable)
+	}
+
+	const validateTitle = (e) => {
+		if (e == null || e.trim().length < 2) {
+			return false;
+		} else {
+			return true
+		}
+	}
+
+	const validateLimit = (e) => {
+		if (e != null) {
+			var bal = parseFloat(e);
+			if (bal < 100) {
+				return false
+			} else {
+				return true
+			}
+		}
+	}
+
+	const validateBalance = (e) => {
+		if (e != null) {
+			var bal = parseFloat(e);
+			if (bal < 1.00) {
+				return false
+			} else {
+				return true
+			}
+		}
+	}
+
+	const validateInterest = (e) => {
+		if (e != null) {
+			var bal = parseFloat(e);
+			if (bal < 1.00) {
+				return false
+			} else {
+				return true
+			}
+		}
 	}
 
 	return (
@@ -45,7 +125,7 @@ const DebtDetailScreen = () => {
 				<p>
 					Here are the details of the selected debt.
 				</p>
-				<form onSubmit={createDebt}>
+				<form onSubmit={updateDebt}>
 					<p>
 						<label>Debt title</label>
 					</p>
@@ -53,7 +133,7 @@ const DebtDetailScreen = () => {
 						<input
 							disabled={editable}
 							name="Ttile"
-							placeholder={debtTitle}
+							value={debtTitle}
 							onChange={(e) => setTitle(e.target.value)}
 						/>
 					</p>
@@ -64,7 +144,7 @@ const DebtDetailScreen = () => {
 						<input
 							disabled={editable}
 							name="Original"
-							placeholder={debtOriginal}
+							value={debtOriginal}
 							onChange={(e) => setLimit(e.target.value)}
 						/>
 					</p>
@@ -75,7 +155,7 @@ const DebtDetailScreen = () => {
 						<input
 							disabled={editable}
 							name="Balance"
-							placeholder={debtBalance}
+							value={debtBalance}
 							onChange={(e) => setBalance(e.target.value)}
 						/>
 					</p>
@@ -86,7 +166,7 @@ const DebtDetailScreen = () => {
 						<input
 							disabled={editable}
 							name="Intrest"
-							placeholder="Interest Rate"
+							value={debtInterest}
 							onChange={(e) => setInterest(e.target.value)}
 						/>
 					</p>
@@ -94,7 +174,7 @@ const DebtDetailScreen = () => {
 						<label for="Category">Category</label></p>
 					<p>
 						<select name="Categories" id="cats" onChange={() => setCategory(document.getElementById('cats').value)}
-						disabled={editable}>
+							disabled={editable}>
 							<option value="" disabled selected hidden>{debtCategory}</option>
 							<option value="Mortgage">Mortgage</option>
 							<option value="Car loan">Auto Loan</option>
