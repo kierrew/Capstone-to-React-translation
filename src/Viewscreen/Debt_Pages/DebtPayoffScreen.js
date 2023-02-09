@@ -77,7 +77,7 @@ const DebtPayoffScreen = () => {
 					{minimumPayment.toFixed(2)}
 				</p>
 				<p hidden={showValue}>
-					<label>Total number of Payments</label>
+					<label>Total number of Monthly Payments</label>
 				</p>
 				<p hidden={showValue}>
 					{totalPayments}
