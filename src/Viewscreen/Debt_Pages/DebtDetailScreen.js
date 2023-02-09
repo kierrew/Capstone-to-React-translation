@@ -10,6 +10,7 @@ import { db } from '../../firebase';
 
 
 const DebtDetailScreen = () => {
+	
 
 	let { debtTitle } = useParams();
 	let { debtBalance } = useParams();
@@ -117,23 +118,27 @@ const DebtDetailScreen = () => {
 
 	const payoff = () => {
 		navigate('/debtPayoff/' + title + '/' +
-		interest + '/' + 
-		balance + '/' + 
-		limit + '/' +
-		category)
+			interest + '/' +
+			balance + '/' +
+			limit + '/' +
+			category)
 	}
 
 	return (
-		<div className="App">
+		<div
+			className="App">
 			<CustomNavbar />
-			<header className="App-header">
+			<header
+				className="App-header">
 				Debt Details
 			</header>
-			<body className='App-body'>
+			<body
+				className='App-body'>
 				<p>
 					Here are the details of the selected debt.
 				</p>
-				<form onSubmit={updateDebt}>
+				<form
+					onSubmit={updateDebt}>
 					<p>
 						<label>Debt title</label>
 					</p>
@@ -181,7 +186,10 @@ const DebtDetailScreen = () => {
 					<p>
 						<label for="Category">Category</label></p>
 					<p>
-						<select name="Categories" id="cats" onChange={() => setCategory(document.getElementById('cats').value)}
+						<select
+							name="Categories"
+							id="cats"
+							onChange={() => setCategory(document.getElementById('cats').value)}
 							disabled={editable}>
 							<option value="" disabled selected hidden>{debtCategory}</option>
 							<option value="Mortgage">Mortgage</option>
@@ -191,13 +199,28 @@ const DebtDetailScreen = () => {
 						</select>
 					</p>
 					<p>
-						<Button variant="secondary" onClick={setEdit}>Edit Debt</Button>
+						<Button
+							variant="secondary"
+							size="lg"
+							onClick={setEdit}>
+							Edit Debt
+						</Button>
 					</p>
 					<p>
-						<Button variant="secondary" type="submit">Save Debt</Button>
+						<Button
+							variant="secondary"
+							size="lg"
+							type="submit">
+							Save Debt
+						</Button>
 					</p>
 					<p>
-						<Button variant="secondary" onClick={payoff}>Payoff Schedule</Button>
+						<Button
+							variant="secondary"
+							size="lg"
+							onClick={payoff}>
+							Payoff Schedule
+						</Button>
 					</p>
 				</form>
 			</body>

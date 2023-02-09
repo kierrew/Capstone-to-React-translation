@@ -85,7 +85,7 @@ const MyRoutes = () => {
 					<CurrencyExchangeScreen />
 				</ProtectedRoutes>
 			} />
-			<Route path='/addDebt/:keyCode' element ={
+			<Route path='/addDebt/:keyCode' element={
 				<ProtectedRoutes>
 					<AddDebtScreen />
 				</ProtectedRoutes>

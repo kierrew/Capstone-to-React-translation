@@ -24,15 +24,20 @@ const SignUpScreen = () => {
 		}
 	};
 
-	const signIn = () =>{
+	const signIn = () => {
 		navigate('/')
 	}
 
 	return (
-		<div className="App">
-			<header className="App-header">
-			<h1>Sign up</h1>
-				<form onSubmit={handleSubmit}>
+		<div
+			className="App">
+			<header
+				className="App-header">
+				<h1>
+					Sign up
+				</h1>
+				<form
+					onSubmit={handleSubmit}>
 					<p>
 						<input
 							name="email"
@@ -50,12 +55,22 @@ const SignUpScreen = () => {
 						/>
 					</p>
 					<p>
-					<Button variant="secondary" type="submit">Create Account</Button>
+						<Button
+							variant="secondary"
+							size="lg"
+							type="submit">
+							Create Account
+						</Button>
 					</p>
 				</form>
 				<p>
-						<Button variant="secondary" onClick={signIn}>Returning user? Sign in.</Button>
-					</p>
+					<Button
+						variant="secondary"
+						size="lg"
+						onClick={signIn}>
+						Returning user? Sign in.
+					</Button>
+				</p>
 			</header>
 		</div>
 	);

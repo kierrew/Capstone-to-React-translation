@@ -27,11 +27,13 @@ function SignInScreen() {
 
 	return (
 		<div className="App">
-			<body className="App-body">
+			<body
+				className="App-body">
 				<p>
 					Welcome to the Budget App please sign in
 				</p>
-				<form onSubmit={handleSubmit}>
+				<form
+					onSubmit={handleSubmit}>
 					<p>
 						<input
 							name="email"
@@ -49,11 +51,21 @@ function SignInScreen() {
 						/>
 					</p>
 					<p>
-						<Button variant="secondary" type="submit">Sign in</Button>
+						<Button
+							variant="secondary"
+							size="lg"
+							type="submit">
+							Sign in
+						</Button>
 					</p>
 				</form>
 				<p>
-					<Button variant="secondary" onClick={signUp}>New User? Click here.</Button>
+					<Button
+						variant="secondary"
+						size="lg"
+						onClick={signUp}>
+						New User? Click here.
+					</Button>
 				</p>
 			</body>
 		</div>

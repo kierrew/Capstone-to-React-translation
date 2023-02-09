@@ -44,10 +44,12 @@ const DebtPayoffScreen = () => {
 	return (
 		<div>
 			<CustomNavbar />
-			<header className='App-header'>
+			<header className=
+				'App-header'>
 				{debtTitle} Payoff schedule
 			</header>
-			<body className='App-body'>
+			<body
+				className='App-body'>
 				<p>
 					<label>Debt limit or original value</label>
 				</p>

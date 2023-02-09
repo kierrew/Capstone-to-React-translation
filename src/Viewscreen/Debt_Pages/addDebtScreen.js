@@ -16,20 +16,20 @@ const AddDebtScreen = () => {
 	const navigate = useNavigate()
 	let uid = useRef({});
 	let emailAdd = useRef({});
-	let { keyCode }  = useParams();
+	let { keyCode } = useParams();
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-		  console.log(currentUser);
-		  uid.current = currentUser.uid
-		  emailAdd.current = currentUser.email
+			console.log(currentUser);
+			uid.current = currentUser.uid
+			emailAdd.current = currentUser.email
 		});
 		return () => {
-		  unsubscribe();
+			unsubscribe();
 		};
-	  }, []);
+	}, []);
 
-	  const createDebt = async (e) => {
+	const createDebt = async (e) => {
 		e.preventDefault(e)
 		console.log(keyCode)
 		if (validateTitle(title) === false) {
@@ -50,7 +50,7 @@ const AddDebtScreen = () => {
 		}
 
 		await addDoc(collection(db, 'Users',
-		keyCode, 'Debts'), {
+			keyCode, 'Debts'), {
 			title: title,
 			balance: balance,
 			category: category,
@@ -101,19 +101,23 @@ const AddDebtScreen = () => {
 			}
 		}
 	}
-	
+
 
 	return (
-		<div className="App">
+		<div
+			className="App">
 			<CustomNavbar />
-			<header className="App-header">
+			<header
+				className="App-header">
 				Add New Debt
 			</header>
-			<body className='App-body'>
+			<body
+				className='App-body'>
 				<p>
 					Please enter the informationof your new debt.
 				</p>
-				<form onSubmit={createDebt}>
+				<form
+					onSubmit={createDebt}>
 					<p>
 						<input
 							name="Ttile"
@@ -146,7 +150,7 @@ const AddDebtScreen = () => {
 						<label for="Category">Category</label></p>
 					<p>
 						<select name="Categories" id="cats" onChange={() => setCategory(document.getElementById('cats').value)}>
-						<option value="" disabled selected hidden>Select Category</option>
+							<option value="" disabled selected hidden>Select Category</option>
 							<option value="Mortgage">Mortgage</option>
 							<option value="Car loan">Auto Loan</option>
 							<option value="Credit Card">Credit Card</option>
@@ -154,7 +158,12 @@ const AddDebtScreen = () => {
 						</select>
 					</p>
 					<p>
-						<Button variant="secondary" type="submit">Add Debt</Button>
+						<Button
+							variant="secondary"
+							size="lg"
+							type="submit">
+							Add Debt
+						</Button>
 					</p>
 				</form>
 			</body>

@@ -35,12 +35,12 @@ const DebtPageScreen = () => {
 
   const showDetails = () => {
     navigate('/debtDetail/' + currentDebt.title + '/' +
-     currentDebt.interest + '/' + 
-     currentDebt.balance + '/' + 
-     currentDebt.category + '/' + 
-     currentDebt.id + '/' + 
-     currentDebt.original + '/' + 
-     keyCode.current)
+      currentDebt.interest + '/' +
+      currentDebt.balance + '/' +
+      currentDebt.category + '/' +
+      currentDebt.id + '/' +
+      currentDebt.original + '/' +
+      keyCode.current)
   }
 
   useEffect(() => {
@@ -79,9 +79,11 @@ const DebtPageScreen = () => {
   }, [])
 
   return (
-    <div className="App">
+    <div
+      className="App">
       <CustomNavbar />
-      <body className='App-body'>
+      <body
+        className='App-body'>
         <p>
           {user && user.email}'s debt list
         </p>

@@ -36,7 +36,12 @@ const HomeScreen = () => {
 					<p>
 						Uid: {user && user.uid}
 					</p>
-					<Button variant="secondary" onClick={handleLogout}>Logout</Button>
+					<Button
+						variant="secondary"
+						size="lg"
+						onClick={handleLogout}>
+						Logout
+					</Button>
 				</body>
 			</Col>
 		</div>
