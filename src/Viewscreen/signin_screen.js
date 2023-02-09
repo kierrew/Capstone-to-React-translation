@@ -8,19 +8,16 @@ import { useNavigate } from "react-router-dom";
 function SignInScreen() {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
-	const [error, setError] = useState('')
 	const { signIn } = UserAuth();
 	const navigate = useNavigate()
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		setError('');
 		try {
 			await signIn(email, password);
 			navigate('/home');
 		} catch (e) {
-			setError(e.massage);
-			console.log(error)
+			alert("Username and/or Password is invalid. \n Please try again.")
 		}
 	}
 

@@ -119,7 +119,8 @@ const DebtDetailScreen = () => {
 		navigate('/debtPayoff/' + title + '/' +
 		interest + '/' + 
 		balance + '/' + 
-		limit)
+		limit + '/' +
+		category)
 	}
 
 	return (

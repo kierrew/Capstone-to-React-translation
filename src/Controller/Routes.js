@@ -95,7 +95,7 @@ const MyRoutes = () => {
 					<DebtDetailScreen />
 				</ProtectedRoutes>
 			} />
-			<Route path='/debtPayoff/:debtTitle/:debtInterest/:debtBalance/:debtOriginal' element={
+			<Route path='/debtPayoff/:debtTitle/:debtInterest/:debtBalance/:debtOriginal/:debtCategory' element={
 				<ProtectedRoutes>
 					<DebtPayoffScreen />
 				</ProtectedRoutes>

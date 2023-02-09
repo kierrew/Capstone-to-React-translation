@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import CustomNavbar from "../../Model/Components/navbar";
 import { UserAuth } from "../../Controller/Auth";
 import { db } from '../../firebase';
-import { query, collection, onSnapshot, QuerySnapshot, where, getDocs, connectFirestoreEmulator } from 'firebase/firestore';
+import { query, collection, onSnapshot } from 'firebase/firestore';
 import Debt from '../../Model/debt';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { Button, Row } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
 const DebtPageScreen = () => {
