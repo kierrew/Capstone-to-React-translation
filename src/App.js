@@ -1,8 +1,7 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Routes } from 'react-router';
-import { AuthContextProvider } from './Controller/Auth';
-import MyRoutes from './Controller/Routes';
+import { AuthContextProvider } from '../capstone-translation/src/Controller/Auth';
+import MyRoutes from '../capstone-translation/src/Controller/Routes';
+import './App.css';
 
 
 function App() {
