@@ -1,23 +1,23 @@
-import React from 'react'
+import React from 'react';
 import { Route, Routes } from 'react-router';
-import SignInScreen from '../Viewscreen/signin_screen';
-import SignUpScreen from '../Viewscreen/signup_screen';
-import DebtPageScreen from '../Viewscreen/Debt_Pages/debtPage_Screen';
-import HomeScreen from '../Viewscreen/home_screen';
 import ProtectedRoutes from '../Controller/ProtectedRoutes';
-import TransactionsScreen from '../Viewscreen/TransactionsScreen';
-import SavingsScreen from '../Viewscreen/SavingsScreen';
-import BudgetTemplatesScreen from '../Viewscreen/BudgetTemplatesScreen';
-import AccountsScreen from '../Viewscreen/AccountsScreen';
-import ToolsScreen from '../Viewscreen/ToolsScreen';
-import PlansScreen from '../Viewscreen/PlansScreen';
-import MyProfileScreen from '../Viewscreen/MyProfileScreen';
-import UserListScreen from '../Viewscreen/UserListScreen';
-import WalletScreen from '../Viewscreen/WalletScreen';
-import CurrencyExchangeScreen from '../Viewscreen/CurrencyExchangeScreen';
-import AddDebtScreen from '../Viewscreen/Debt_Pages/addDebtScreen';
-import DebtDetailScreen from '../Viewscreen/Debt_Pages/DebtDetailScreen';
-import DebtPayoffScreen from '../Viewscreen/Debt_Pages/DebtPayoffScreen';
+import AccountsScreen from '../Screens/Accounts/AccountsScreen';
+import BudgetTemplatesScreen from '../Screens/BudgetTemplates/BudgetTemplatesScreen';
+import CurrencyExchangeScreen from '../Screens/CurrencyExchange/CurrencyExchangeScreen';
+import AddDebtScreen from '../Screens/DebtPages/addDebt';
+import DebtDetailScreen from '../Screens/DebtPages/DebtDetail';
+import DebtPayoffScreen from '../Screens/DebtPages/DebtPayoffScreen';
+import DebtPageScreen from '../Screens/DebtPages/Debts';
+import HomeScreen from '../Screens/LandingScreens/HomeScreen';
+import SignInScreen from '../Screens/LandingScreens/signin_screen';
+import SignUpScreen from '../Screens/LandingScreens/signup_screen';
+import PlansScreen from '../Screens/Plans/PlansScreen';
+import MyProfileScreen from '../Screens/Profiles/MyProfileScreen';
+import UserListScreen from '../Screens/Profiles/UserListScreen';
+import SavingsScreen from '../Screens/Savings/SavingsScreen';
+import ToolsScreen from '../Screens/Tools/ToolsScreen';
+import TransactionsScreen from '../Screens/Transactions/TransactionsScreen';
+import WalletScreen from '../Screens/Wallet/WalletScreen';
 
 
 const MyRoutes = () => {
