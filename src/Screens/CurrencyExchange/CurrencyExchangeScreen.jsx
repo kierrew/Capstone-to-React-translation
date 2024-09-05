@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import CustomNavbar from "../../Components/navbar";
-
 
 const CurrencyExchangeScreen = () => {
   return (
-	<div>
-    <CustomNavbar />
-    CurrencyExchangeScreen</div>
-  )
-}
+    <div>
+      <CustomNavbar />
+      CurrencyExchangeScreen
+    </div>
+  );
+};
 
-export default CurrencyExchangeScreen
+export default CurrencyExchangeScreen;

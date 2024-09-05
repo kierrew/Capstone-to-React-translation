@@ -1,14 +1,14 @@
-import React, { Children } from 'react'
-import { UserAuth } from './Auth';
+import React, { Children } from "react";
+import { UserAuth } from "./Auth";
 import { Navigate, useNavigate } from "react-router";
 
-const ProtectedRoutes = ({children}) => {
-	const {user} = UserAuth();
+const ProtectedRoutes = ({ children }) => {
+  const { user } = UserAuth();
 
-	if(!user) {
-		return <Navigate to='/' />
-	}
+  if (!user) {
+    return <Navigate to="/" />;
+  }
   return children;
-}
+};
 
-export default ProtectedRoutes
+export default ProtectedRoutes;

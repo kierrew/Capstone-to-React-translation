@@ -1,5 +1,5 @@
-import React from 'react';
-import CustomNavbar from '../../Components/navbar';
+import React from "react";
+import CustomNavbar from "../../Components/navbar";
 
 const BudgetTemplatesScreen = () => {
   return (
@@ -7,7 +7,7 @@ const BudgetTemplatesScreen = () => {
       <CustomNavbar />
       BudgetTemplatesScreen
     </div>
-  )
-}
+  );
+};
 
-export default BudgetTemplatesScreen
+export default BudgetTemplatesScreen;

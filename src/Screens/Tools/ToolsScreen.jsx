@@ -1,6 +1,5 @@
-import React from 'react';
+import React from "react";
 import CustomNavbar from "../../Components/navbar";
-
 
 const ToolsScreen = () => {
   return (
@@ -8,7 +7,7 @@ const ToolsScreen = () => {
       <CustomNavbar />
       ToolsScreen
     </div>
-  )
-}
+  );
+};
 
-export default ToolsScreen
+export default ToolsScreen;
