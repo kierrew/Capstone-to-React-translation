@@ -29,57 +29,57 @@ const MyRoutes = () => {
 					<HomeScreen />
 				</ProtectedRoutes>
 			},
-			{path: 'debts', element: 
+			{path: '/debts', element: 
 				<ProtectedRoutes>
 					<DebtPageScreen />
 				</ProtectedRoutes>
 			},
-			{path: 'transactions', element:
+			{path: '/transactions', element:
 				<ProtectedRoutes>
 					<TransactionsScreen />
 				</ProtectedRoutes>
 			},
-			{path: 'savings', element: 
+			{path: '/savings', element: 
 				<ProtectedRoutes>
 					<SavingsScreen />
 				</ProtectedRoutes>
 			},
-			{path: 'templates', element: 
+			{path: '/templates', element: 
 				<ProtectedRoutes>
 					<BudgetTemplatesScreen />
 				</ProtectedRoutes>
 			},
-			{path: 'accounts', element: 
+			{path: '/accounts', element: 
 				<ProtectedRoutes>
 					<AccountsScreen />
 				</ProtectedRoutes>
 			},
-			{path: 'tools', element: 
+			{path: '/tools', element: 
 				<ProtectedRoutes>
 					<ToolsScreen	/>,
 				</ProtectedRoutes>
 			},
-			{path: 'plans', element: 
+			{path: '/plans', element: 
 				<ProtectedRoutes>
 					<PlansScreen	/>,
 				</ProtectedRoutes>
 			},
-			{path: 'profile', element: 
+			{path: '/profile', element: 
 				<ProtectedRoutes>
 					<MyProfileScreen	/>,
 				</ProtectedRoutes>
 			},
-			{path: 'users', element: 
+			{path: '/users', element: 
 				<ProtectedRoutes>
 					<UserListScreen	/>,
 				</ProtectedRoutes>
 			},
-			{path: 'wallet', element: 
+			{path: '/wallet', element: 
 				<ProtectedRoutes>
 					<WalletScreen	/>,
 				</ProtectedRoutes>
 			},
-			{path: 'exchange', element: 
+			{path: '/exchange', element: 
 				<ProtectedRoutes>
 					<CurrencyExchangeScreen	/>,
 				</ProtectedRoutes>
