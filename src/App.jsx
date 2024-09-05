@@ -1,8 +1,8 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import './App.css';
-import { AuthContextProvider } from './Controller/Auth';
-import MyRoutes from './Controller/Routes';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import "./App.css";
+import { AuthContextProvider } from "./Controller/Auth";
+import MyRoutes from "./Controller/Routes";
 
 function App() {
   return (
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

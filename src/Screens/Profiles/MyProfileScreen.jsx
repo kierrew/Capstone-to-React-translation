@@ -1,6 +1,5 @@
-import React from 'react';
+import React from "react";
 import CustomNavbar from "../../Components/navbar";
-
 
 const MyProfileScreen = () => {
   return (
@@ -8,7 +7,7 @@ const MyProfileScreen = () => {
       <CustomNavbar />
       MyProfileScreen
     </div>
-  )
-}
+  );
+};
 
-export default MyProfileScreen
+export default MyProfileScreen;

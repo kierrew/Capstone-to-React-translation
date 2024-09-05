@@ -1,6 +1,5 @@
-import React from 'react';
+import React from "react";
 import CustomNavbar from "../../Components/navbar";
-
 
 const UserListScreen = () => {
   return (
@@ -8,7 +7,7 @@ const UserListScreen = () => {
       <CustomNavbar />
       UserListScreen
     </div>
-  )
-}
+  );
+};
 
-export default UserListScreen
+export default UserListScreen;

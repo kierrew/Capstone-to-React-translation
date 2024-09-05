@@ -1,5 +1,5 @@
-import React from 'react';
-import CustomNavbar from '../../Components/navbar';
+import React from "react";
+import CustomNavbar from "../../Components/navbar";
 
 const SavingsScreen = () => {
   return (
@@ -7,7 +7,7 @@ const SavingsScreen = () => {
       <CustomNavbar />
       SavingsScreen
     </div>
-  )
-}
+  );
+};
 
-export default SavingsScreen
+export default SavingsScreen;
