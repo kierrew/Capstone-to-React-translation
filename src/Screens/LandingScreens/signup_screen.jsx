@@ -29,38 +29,38 @@ const SignUpScreen = () => {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header>
         <h1>Sign up</h1>
-        <form onSubmit={handleSubmit}>
-          <p>
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </p>
-          <p>
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </p>
-          <p>
-            <Button variant="secondary" size="lg" type="submit">
-              Create Account
-            </Button>
-          </p>
-        </form>
-        <p>
-          <Button variant="secondary" size="lg" onClick={signIn}>
-            Returning user? Sign in.
-          </Button>
-        </p>
       </header>
+      <body >
+      <form onSubmit={handleSubmit}>
+        <div className="m-2">
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          </div>
+          <div className="gap-y-1">
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div>
+          <Button variant="primary" type="submit" className="m-2">
+            Create Account
+          </Button>
+        </div>
+      </form>
+      <Button variant="primary" onClick={signIn}>
+        Returning user? Sign in.
+      </Button>
+      </body>
     </div>
   );
 };
