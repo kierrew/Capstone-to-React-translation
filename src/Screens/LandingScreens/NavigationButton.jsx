@@ -1,15 +1,11 @@
+import { Button } from "@nextui-org/react";
 import React from "react";
-import { Button } from "react-bootstrap";
 import styles from "./HomeScreen.module.scss";
 
 export const NavigationButton = ({ text, onClick, icon }) => {
   return (
-    <div>
-      <Button
-        onClick={onClick}
-        variant="outline-dark"
-        className={styles.button}
-      >
+    <div className={styles.button}>
+      <Button onClick={onClick} variant="outline-dark">
         {icon}
       </Button>
       <h4>{text}</h4>

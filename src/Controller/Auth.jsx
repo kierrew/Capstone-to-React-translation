@@ -15,16 +15,20 @@ export const AuthContextProvider = ({ children }) => {
 
   const createUser = async (email, password) => {
     try {
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredentials = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
       const user = userCredentials.user;
       console.log("User created: ", user);
-      
+
       if (user != null) {
         const userProf = {
           email: user.email,
           uid: user.uid,
         };
-        
+
         await addDoc(collection(db, "Users"), userProf);
 
         console.log("User document created in Firestore");

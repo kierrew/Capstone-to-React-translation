@@ -1,12 +1,12 @@
+import { Modal } from "@nextui-org/react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import React, { useEffect, useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { useNavigate, useParams } from "react-router-dom";
-import CustomNavbar from "../../Components/navbar";
-import { db } from "../../firebase";
+import { db } from "../../../firebase";
 
-const AddDebtScreen = () => {
+const AddDebtModal = ({ open, closeAction }) => {
   const [title, setTitle] = useState("");
   const [limit, setLimit] = useState("");
   const [balance, setBalance] = useState("");
@@ -102,69 +102,70 @@ const AddDebtScreen = () => {
   };
 
   return (
-    <div className="App">
-      <CustomNavbar />
-      <header className="App-header">Add New Debt</header>
-      <body className="App-body">
-        <p>Please enter the informationof your new debt.</p>
-        <form onSubmit={createDebt}>
-          <p>
-            <input
-              name="Ttile"
-              placeholder="Debt Title"
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </p>
-          <p>
-            <input
-              name="Original"
-              placeholder="Loan amnt or Credit limit"
-              onChange={(e) => setLimit(e.target.value)}
-            />
-          </p>
-          <p>
-            <input
-              name="Balance"
-              placeholder="Balance"
-              onChange={(e) => setBalance(e.target.value)}
-            />
-          </p>
-          <p>
-            <input
-              name="Intrest"
-              placeholder="Interest Rate"
-              onChange={(e) => setInterest(e.target.value)}
-            />
-          </p>
-          <p>
-            <label for="Category">Category</label>
-          </p>
-          <p>
-            <select
-              name="Categories"
-              id="cats"
-              onChange={() =>
-                setCategory(document.getElementById("cats").value)
-              }
-            >
-              <option value="" disabled selected hidden>
-                Select Category
-              </option>
-              <option value="Mortgage">Mortgage</option>
-              <option value="Car loan">Auto Loan</option>
-              <option value="Credit Card">Credit Card</option>
-              <option value="Medical Bill">Medical Bill</option>
-            </select>
-          </p>
-          <p>
-            <Button variant="secondary" size="lg" type="submit">
-              Add Debt
-            </Button>
-          </p>
-        </form>
-      </body>
-    </div>
+    <Modal isOpen={open} onOpenChange={closeAction}>
+      <div>
+        <Modal.Header>Add New Debt</Modal.Header>
+        <Modal.Body className="flex flex-col items-center gap-2">
+          <div>Please enter the information of your new debt.</div>
+          <form onSubmit={createDebt}>
+            <div className="border-2 m-1">
+              <input
+                name="Ttile"
+                placeholder="Debt Title"
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <p className="border-2 m-1">
+              <input
+                name="Original"
+                placeholder="Loan amnt or Credit limit"
+                onChange={(e) => setLimit(e.target.value)}
+              />
+            </p>
+            <p className="border-2 m-1">
+              <input
+                name="Balance"
+                placeholder="Balance"
+                onChange={(e) => setBalance(e.target.value)}
+              />
+            </p>
+            <p className="border-2 m-1">
+              <input
+                name="Intrest"
+                placeholder="Interest Rate"
+                onChange={(e) => setInterest(e.target.value)}
+              />
+            </p>
+            <p className="border-2 m-1">
+              <label for="Category">Category</label>
+            </p>
+            <p className="border-2 m-1">
+              <select
+                name="Categories"
+                id="cats"
+                onChange={() =>
+                  setCategory(document.getElementById("cats").value)
+                }
+              >
+                <option value="" disabled selected hidden>
+                  Select Category
+                </option>
+                <option value="Mortgage">Mortgage</option>
+                <option value="Car loan">Auto Loan</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Medical Bill">Medical Bill</option>
+              </select>
+            </p>
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button type="submit" className="ml-12">
+            Add Debt
+          </Button>
+        </Modal.Footer>
+      </div>
+    </Modal>
   );
 };
 
-export default AddDebtScreen;
+export default AddDebtModal;

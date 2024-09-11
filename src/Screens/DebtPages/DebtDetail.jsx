@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router";
 import CustomNavbar from "../../Components/navbar";
 import { db } from "../../firebase";
 
-const DebtDetailScreen = () => {
+const DebtDetailModal = (debt) => {
   let { debtTitle } = useParams();
   let { debtBalance } = useParams();
   let { debtCategory } = useParams();
@@ -221,4 +221,4 @@ const DebtDetailScreen = () => {
   );
 };
 
-export default DebtDetailScreen;
+export default DebtDetailModal;
