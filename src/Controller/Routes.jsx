@@ -3,7 +3,6 @@ import { useRoutes } from "react-router-dom";
 import AccountsScreen from "../Screens/Accounts/AccountsScreen";
 import BudgetTemplatesScreen from "../Screens/BudgetTemplates/BudgetTemplatesScreen";
 import CurrencyExchangeScreen from "../Screens/CurrencyExchange/CurrencyExchangeScreen";
-import AddDebtScreen from "../Screens/DebtPages/addDebt";
 import DebtDetailScreen from "../Screens/DebtPages/DebtDetail";
 import DebtPayoffScreen from "../Screens/DebtPages/DebtPayoffScreen";
 import DebtPageScreen from "../Screens/DebtPages/Debts";
@@ -116,14 +115,6 @@ const MyRoutes = () => {
       element: (
         <ProtectedRoutes>
           <CurrencyExchangeScreen />,
-        </ProtectedRoutes>
-      ),
-    },
-    {
-      path: "/addDebt/:keyCode",
-      element: (
-        <ProtectedRoutes>
-          <AddDebtScreen />,
         </ProtectedRoutes>
       ),
     },

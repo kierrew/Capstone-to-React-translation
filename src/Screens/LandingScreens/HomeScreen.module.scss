@@ -1,7 +1,11 @@
 .button {
-  @apply w-32 h-32;
+  @apply border-2 border-black w-32 h-32 grid grid-cols-1 place-items-center;
 }
 
 centerIcon {
   @apply justify-items-center;
+}
+
+.navButtonContainer {
+  @apply grid grid-cols-4 place-items-center gap-16 mt-8;
 }

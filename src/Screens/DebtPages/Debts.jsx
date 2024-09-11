@@ -1,12 +1,13 @@
+import { Button } from "@nextui-org/react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { collection, onSnapshot, query } from "firebase/firestore";
 import React, { useEffect, useRef, useState } from "react";
-import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import CustomNavbar from "../../Components/navbar";
 import { UserAuth } from "../../Controller/Auth";
 import { db } from "../../firebase";
-import Debt from "../../Model/debt";
+import { AddDebtModal } from "./components/AddDebtModal";
+import { DebtCard } from "./components/DebtCard";
 
 const DebtPageScreen = () => {
   const { user } = UserAuth();
@@ -16,6 +17,8 @@ const DebtPageScreen = () => {
   let keyCode = useRef({});
   const navigate = useNavigate();
   let currentDebt = useRef({});
+  const [addDebtModalOpen, setAddDebtModalOpen] = useState(false);
+  const [debtDetailModalOpen, setDebtDetailModalOpen] = useState(false);
 
   const newDebt = () => {
     navigate("/addDebt/" + keyCode.current);
@@ -55,7 +58,6 @@ const DebtPageScreen = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
       uid.current = currentUser.uid;
     });
     return () => {
@@ -64,7 +66,6 @@ const DebtPageScreen = () => {
   }, [auth]);
 
   useEffect(() => {
-    //let usersArr = []
     let debtsArr = [];
     const q = query(collection(db, "Users"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -89,29 +90,25 @@ const DebtPageScreen = () => {
   return (
     <div className="App">
       <CustomNavbar />
-      <body className="App-body">
-        <p>{user && user.email}'s debt list</p>
-        <p>Click tile to see details</p>
-        <ul>
-          {debts.map((debt, index) => (
-            <button
-              className="No-underline"
-              type="button"
-              onClick={setDebt.bind(this, debt)}
-            >
-              <Debt key={index} debt={debt} />
-            </button>
+      <div className="App-body">
+        <div>{user && user.email}'s debt list</div>
+        <div>Click tile to see details</div>
+        <div className="grid grid-cols-4 place-items-center gap-16">
+          {debts.map((debt, key) => (
+            
+            <DebtCard key={key} debt={debt} />
           ))}
-        </ul>
+          </div>
         <p>
           <button type="button" class="btn btn-link" onClick={showKey}>
             Color Key
           </button>
         </p>
-        <Button variant="primary" size="lg" onClick={newDebt}>
+        <Button variant="primary"  onClick={() => setAddDebtModalOpen(true)}>
           Add New Debt
         </Button>
-      </body>
+      </div>
+      <AddDebtModal open={addDebtModalOpen} closeAction={closeAddModal} />
     </div>
   );
 };

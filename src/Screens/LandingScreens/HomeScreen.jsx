@@ -15,6 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import CustomNavbar from "../../Components/navbar";
+import styles from "./HomeScreen.module.scss";
 import { NavigationButton } from "./NavigationButton";
 
 const HomeScreen = () => {
@@ -27,14 +28,7 @@ const HomeScreen = () => {
   return (
     <div>
       <CustomNavbar />
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "4rem",
-          justifyItems: "center",
-        }}
-      >
+      <div className={styles.navButtonContainer}>
         <NavigationButton
           text={"Accounts"}
           onClick={() => handleNavigation("/accounts")}
