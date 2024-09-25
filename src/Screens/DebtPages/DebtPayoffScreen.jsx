@@ -1,6 +1,6 @@
 import CircularSlider from "@fseehawer/react-circular-slider";
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button } from "@nextui-org/react";
 import { useParams } from "react-router";
 import CustomNavbar from "../../Components/navbar";
 
