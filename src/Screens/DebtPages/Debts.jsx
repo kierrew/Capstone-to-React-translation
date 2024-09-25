@@ -1,4 +1,3 @@
-import { Button } from "@nextui-org/react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { collection, onSnapshot, query } from "firebase/firestore";
 import React, { useEffect, useRef, useState } from "react";
@@ -13,15 +12,14 @@ const DebtPageScreen = () => {
   const { user } = UserAuth();
   const auth = getAuth();
   const [debts, setDebts] = useState([]);
+  const [update, setUpdate] = useState(false);
   let uid = useRef({});
   let keyCode = useRef({});
   const navigate = useNavigate();
   let currentDebt = useRef({});
-  const [addDebtModalOpen, setAddDebtModalOpen] = useState(false);
-  const [debtDetailModalOpen, setDebtDetailModalOpen] = useState(false);
 
-  const newDebt = () => {
-    navigate("/addDebt/" + keyCode.current);
+  const closeAddModal = () => {
+    setAddDebtModalOpen(false);
   };
 
   const setDebt = (debt) => {
@@ -33,7 +31,7 @@ const DebtPageScreen = () => {
 
   const showKey = () => {
     alert(
-      "If card has red text the debt is greater than 75% of limit or original amount \n If card has yellow text the debt is greater than 50% of limit or original amount \n If card has green text the debt is greater than 25% of limit or original amount \n If card has Blue text the debt is less than 25% of limit or original amount",
+      "If card has red text the debt is greater than 75% of limit or original amount \n If card has yellow text the debt is greater than 50% of limit or original amount \n If card has green text the debt is greater than 25% of limit or original amount \n If card has Blue text the debt is less than 25% of limit or original amount"
     );
   };
 
@@ -52,7 +50,7 @@ const DebtPageScreen = () => {
         "/" +
         currentDebt.original +
         "/" +
-        keyCode.current,
+        keyCode.current
     );
   };
 
@@ -84,8 +82,10 @@ const DebtPageScreen = () => {
       });
     });
 
+    console.log("key code", keyCode.current);
+
     return () => unsubscribe();
-  }, []);
+  }, [update]);
 
   return (
     <div className="App">
@@ -95,20 +95,19 @@ const DebtPageScreen = () => {
         <div>Click tile to see details</div>
         <div className="grid grid-cols-4 place-items-center gap-16">
           {debts.map((debt, key) => (
-            
             <DebtCard key={key} debt={debt} />
           ))}
-          </div>
+        </div>
         <p>
           <button type="button" class="btn btn-link" onClick={showKey}>
             Color Key
           </button>
         </p>
-        <Button variant="primary"  onClick={() => setAddDebtModalOpen(true)}>
-          Add New Debt
-        </Button>
       </div>
-      <AddDebtModal open={addDebtModalOpen} closeAction={closeAddModal} />
+      <AddDebtModal
+        docID={keyCode.current}
+        setUpdate={() => setUpdate(!update)}
+      />
     </div>
   );
 };

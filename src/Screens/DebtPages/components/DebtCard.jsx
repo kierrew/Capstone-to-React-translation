@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import React from "react";
 
-export const DebtCard = ({debt}) => {
+export const DebtCard = ({ debt }) => {
   console.log(debt);
   let borderColor = "";
   let debtIcon;
@@ -41,8 +41,11 @@ export const DebtCard = ({debt}) => {
   }
 
   return (
-    <Card className={`w-auto h-auto border-2 m-2 ${borderColor}`} isPressable>
-      <CardHeader>{debt.title}</CardHeader>
+    <Card
+      className={`w-auto h-auto border-2 m-2 w-60 h-48 ${borderColor}`}
+      isPressable
+    >
+      <CardHeader className="flex justify-center">{debt.title}</CardHeader>
       <CardBody>
         <div className="flex flex-row gap-x-4">
           <p className="flex-auto">{debtIcon}</p>
