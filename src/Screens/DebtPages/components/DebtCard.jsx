@@ -13,8 +13,7 @@ export const DebtCard = ({ debt }) => {
   let borderColor = "";
   let debtIcon;
   const debtPercentage = (debt.balance / debt.original) * 100;
-  const topType =
-    debt.category === "Credit Card" ? "Limit: " : "Original Amount: ";
+  const topType = debt.category === "Credit Card" ? "Limit: " : "Original: ";
 
   switch (debt.category) {
     case "Mortgage":
@@ -41,19 +40,20 @@ export const DebtCard = ({ debt }) => {
   }
 
   return (
-    <Card
-      className={`w-auto h-auto border-2 m-2 w-60 h-48 ${borderColor}`}
-      isPressable
-    >
+    <Card className={`border-2 m-2 w-72 h-56 ${borderColor}`} isPressable>
       <CardHeader className="flex justify-center">{debt.title}</CardHeader>
       <CardBody>
         <div className="flex flex-row gap-x-4">
           <p className="flex-auto">{debtIcon}</p>
           <div className="flex-auto">
-            <div>
-              {topType}: {debt.original}
+            <div className="flex flex-row">
+              <div>{topType}</div>
+              <div>{debt.original}</div>
             </div>
-            <div>Balance: {debt.balance}</div>
+            <div className="flex flex-row">
+              <div>Balance: </div>
+              <div>{debt.balance}</div>
+            </div>
           </div>
         </div>
       </CardBody>
