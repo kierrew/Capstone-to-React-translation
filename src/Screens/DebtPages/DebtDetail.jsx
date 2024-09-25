@@ -1,6 +1,6 @@
+import { Button } from "@nextui-org/react";
 import { doc, updateDoc } from "firebase/firestore";
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
 import { useNavigate, useParams } from "react-router";
 import CustomNavbar from "../../Components/navbar";
 import { db } from "../../firebase";
@@ -124,7 +124,7 @@ const DebtDetailModal = (debt) => {
         "/" +
         limit +
         "/" +
-        category,
+        category
     );
   };
 

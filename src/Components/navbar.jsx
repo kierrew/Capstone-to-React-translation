@@ -1,67 +1,107 @@
+import {
+  Button,
+  Link,
+  Navbar,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+} from "@nextui-org/react";
 import React from "react";
-import { Container } from "react-bootstrap";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../Controller/Auth";
 
 const CustomNavbar = () => {
   const { logout } = UserAuth();
   const navigate = useNavigate();
-
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const handleLogout = async () => {
     try {
       await logout();
       navigate("/");
-      console.log("BYEEEEEE!");
     } catch (e) {
       console.log(e.message);
     }
   };
 
+  const Routes = [
+    {
+      name: "Accounts",
+      path: "/accounts",
+    },
+    {
+      name: "Budget Templates",
+      path: "/templates",
+    },
+    {
+      name: "Currency Exchange",
+      path: "/exchange",
+    },
+    {
+      name: "Debts",
+      path: "/debts",
+    },
+    {
+      name: "My Profile",
+      path: "/profile",
+    },
+    {
+      name: "My Wallet",
+      path: "/wallet",
+    },
+    {
+      name: "Plans",
+      path: "/plans",
+    },
+    {
+      name: "Savings",
+      path: "/savings",
+    },
+    {
+      name: "Tools",
+      path: "/tools",
+    },
+    {
+      name: "Transactions",
+      path: "/transactions",
+    },
+    {
+      name: "User List",
+      path: "/users",
+    },
+  ];
+
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="home">Home</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <NavDropdown title="Menu" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/accounts">Accounts</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/templates">
-                Budget Templates
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/exchange">
-                Currency Exchange
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/debts">Debts</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/wallet">My Wallet</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/plans">Plans</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/savings">Savings</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/tools">Tools</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/transactions">
-                Transactions
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/users">User List</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-        <Navbar.Brand className="cursor-pointer" onClick={handleLogout}>
-          Logout
-        </Navbar.Brand>
-      </Container>
+    <Navbar onMenuOpenChange={setIsMenuOpen}>
+      <NavbarContent>
+        <NavbarItem>
+          <Link href="home" className="text-black">
+            Home
+          </Link>
+        </NavbarItem>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        />
+      </NavbarContent>
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarMenu>
+          {Routes.map((route) => (
+            <NavbarMenuItem key={route.name}>
+              <Link color="success" href={route.path}>
+                {route.name}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </NavbarContent>
+      <NavbarContent justify="end">
+        <NavbarItem>
+          <Button variant="bordered" onClick={handleLogout}>
+            Logout
+          </Button>
+        </NavbarItem>
+      </NavbarContent>
     </Navbar>
   );
 };
