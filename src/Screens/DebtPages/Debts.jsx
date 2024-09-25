@@ -103,11 +103,11 @@ const DebtPageScreen = () => {
             Color Key
           </button>
         </p>
+        <AddDebtModal
+          docID={keyCode.current}
+          setUpdate={() => setUpdate(!update)}
+        />
       </div>
-      <AddDebtModal
-        docID={keyCode.current}
-        setUpdate={() => setUpdate(!update)}
-      />
     </div>
   );
 };
